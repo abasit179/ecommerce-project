@@ -1,0 +1,182 @@
+
+        <!-- main body area -->
+        <div class="main px-lg-4 px-md-4">
+
+            <!-- Body: Header -->
+            <div class="header">
+                <nav class="navbar py-4">
+                    <div class="container-xxl">
+
+                        <!-- header rightbar icon -->
+                        <div class="h-right d-flex align-items-center mr-5 mr-lg-0 order-1">
+                            <div class="d-flex">
+                                <a class="nav-link text-primary collapsed" href="help.html" title="Get Help">
+                                    <i class="fas fa-info-circle fs-5"></i>
+                                </a>
+                            </div>
+                            <div class="dropdown zindex-popover">
+                                <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
+                                    <img src="{{asset('admin/assets/images/flag/GB.png')}}" alt="">
+                                </a>
+                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-md-end p-0 m-0 mt-3">
+                                    <div class="card border-0">
+                                        <ul class="list-unstyled py-2 px-3">
+                                            <li>
+                                                <a href="#" class=""><img src="{{asset('admin/assets/images/flag/GB.png')}}" alt=""> English</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class=""><img src="{{asset('admin/assets/images/flag/DE.png')}}" alt=""> German</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class=""><img src="{{asset('admin/assets/images/flag/FR.png')}}" alt=""> French</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class=""><img src="{{asset('admin/assets/images/flag/IT.png')}}" alt=""> Italian</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class=""><img src="{{asset('admin/assets/images/flag/RU.png')}}" alt=""> Russian</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown notifications">
+                                <a class="nav-link dropdown-toggle pulse" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-bell fs-5"></i>
+                                    <span class="pulse-ring"></span>
+                                </a>
+                                <div id="NotificationsDiv" class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-md-end p-0 m-0 mt-3">
+                                    <div class="card border-0 w380">
+                                        <div class="card-header border-0 p-3">
+                                            <h5 class="mb-0 font-weight-light d-flex justify-content-between">
+                                                <span>Notifications</span>
+                                                <span class="badge text-white">06</span>
+                                            </h5>
+                                        </div>
+                                        <div class="tab-content card-body">
+                                            <div class="tab-pane fade show active">
+                                                <ul class="list-unstyled list mb-0">
+                                                    <!-- Notifications will be dynamically inserted here -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <a class="card-footer text-center border-top-0" href="#"> View all notifications</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="dropdown user-profile ml-2 ml-sm-3 d-flex align-items-center zindex-popover">
+                                <div class="u-info me-2">
+                                    <p class="mb-0 text-end line-height-sm "><span class="font-weight-bold">John Quinn</span></p>
+                                    <small>Admin Profile</small>
+                                </div>
+                                <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown" data-bs-display="static">
+                                    <img class="avatar lg rounded-circle img-thumbnail" src="{{url('admin/assets/images/profile_av.svg')}}" alt="profile">
+                                </a>
+                                <div class="dropdown-menu rounded-lg shadow border-0 dropdown-animation dropdown-menu-end p-0 m-0">
+                                    <div class="card border-0 w280">
+                                        <div class="card-body pb-0">
+                                            <div class="d-flex py-1">
+                                                <img class="avatar rounded-circle" src="assets/images/profile_av.svg" alt="profile">
+                                                <div class="flex-fill ms-3">
+                                                    <p class="mb-0"><span class="font-weight-bold">John	Quinn</span></p>
+                                                    <small class="">Johnquinn@gmail.com</small>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <hr class="dropdown-divider border-dark">
+                                            </div>
+                                        </div>
+                                        <div class="list-group m-2 ">
+                                            <li>
+                                               Profile
+                                               </li>
+                                           <li>
+                                            Order Invoices
+                                           </li>
+                                           @if (Route::has('login'))
+
+                                           @auth
+                                            <li>
+                                                <form method="POST" action="{{ route('admin.logout') }}">
+                                                    @csrf
+                                                    <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                                        Logout
+                                                    </button>
+                                                </form>
+                                            </li>
+                                            @endauth
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting ms-2">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#Settingmodal"><i class="fas fa-cog fs-5"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- menu toggler -->
+                        <button class="navbar-toggler p-0 border-0 menu-toggle order-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainHeader">
+                            <span class="fa fa-bars"></span>
+                        </button>
+
+                        <!-- main menu Search-->
+                        <div class="order-0 col-lg-4 col-md-4 col-sm-12 col-12 mb-3 mb-md-0 ">
+                            <div class="input-group flex-nowrap input-group-lg">
+                                <input type="search" class="form-control" placeholder="Search" aria-label="search" aria-describedby="addon-wrapping">
+                                <button type="button" class="input-group-text" id="addon-wrapping"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        $(document).ready(function () {
+    // Fetch notifications when the dropdown is opened
+    $('.notifications').on('click', function () {
+        $.ajax({
+            url: '{{ route("admin.notifications") }}',
+            type: 'GET',
+            dataType: 'json',
+            success: function (notifications) {
+                let notificationsList = '';
+
+                if (notifications.length > 0) {
+                    notifications.forEach(function (notification) {
+                        notificationsList += `
+                            <li class="py-2 mb-1 border-bottom">
+                                <a href="javascript:void(0);" class="d-flex">
+                                    <img class="avatar rounded-circle" src="https://static.vecteezy.com/system/resources/thumbnails/001/505/138/small_2x/notification-bell-icon-free-vector.jpg" alt="">
+                                    <div class="flex-fill ms-2">
+                                        <p class="d-flex justify-content-between mb-0">
+                                            <span class="font-weight-bold"></span>
+                                            <small>${moment(notification.created_at).fromNow()}</small>
+                                        </p>
+                                        <span>${notification.message}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        `;
+                    });
+                } else {
+                    notificationsList = `<li class="py-2 mb-1 border-bottom text-center"><span>No notifications</span></li>`;
+                }
+
+                // Update the dropdown with the notifications
+                $('#NotificationsDiv .tab-content .tab-pane .list').html(notificationsList);
+            },
+            error: function () {
+                alert('Error fetching notifications');
+            }
+        });
+    });
+});
+
+    </script>
+@endsection
